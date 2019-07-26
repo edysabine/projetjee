@@ -1,0 +1,30 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/pages/admin/main.xhtml">
+
+<ui:define name="content">
+        <div class="container">
+            <div class="row align-items-center regervation_content">
+                <div class="col-lg-7">
+	<div class="form-row">
+	<h:form id="form">
+		<h:panelGrid columns="2">
+		
+			<h:outputText class="form-group col-md-6" value="Login" />
+			<h:inputText style="width:150;height:30" value="#{loginBean.login}" pt:placeholder="Email"/>
+			<h:outputText class="form-group col-md-6" value="Password" />
+			<h:inputSecret style="width:150; height:30" value="#{loginBean.passwd}" />
+			<h:commandButton class="btn_2" id="btn" action="#{loginBean.logAdmin()}" value="Login" />
+			<h:message for="btn"/>
+			
+		</h:panelGrid>
+	</h:form>
+</div>
+</div>
+</div>
+</div>
+</ui:define>
+</ui:composition>

@@ -1,0 +1,112 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/templates/patient.xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:define name="page">
+
+ <section class="feature_part">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <div class="section_tittle text-center">
+                        <h2>Your way</h2>
+                        <br />
+               
+                 <br />
+                        
+                        <h:dataTable value="#{patientBean.parcours}" var="rdv" border="2" cellpadding="10px">
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Referent" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.referent.user.nom} #{rdv.referent.user.prenom}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Referent's Contact" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.referent.user.mail} #{rdv.referent.user.tel}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Description" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.description}" />
+                        </h:column>
+                                              
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Action" />
+                        	</f:facet>
+                        	<h:form>
+    							<h:commandButton action="#{patientBean.stepsvue(rdv)}" value="Show steps"/>
+    						</h:form> 
+                        </h:column>
+                        
+                        </h:dataTable>
+                        
+                        <br /> <h:outputText value="Steps" /> <BR />
+                        
+                        <h:dataTable value="#{patientBean.steps}" var="etape" border="2" cellpadding="10px">
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Priorite" />
+                        	</f:facet>
+                        	<h:outputText value="#{etape.priorite}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="State" />
+                        	</f:facet>
+                        	<h:outputText value="#{etape.etat}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Purpose" />
+                        	</f:facet>
+                        	<h:outputText value="#{etape.mot.lib}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Description" />
+                        	</f:facet>
+                        	<h:outputText value="#{etape.descri}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Specialist" />
+                        	</f:facet>
+                        	<h:outputText value="#{etape.mot.doc.user.nom} #{etape.mot.doc.user.prenom}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Specialist's Contact" />
+                        	</f:facet>
+                        	<h:outputText value="#{etape.mot.doc.user.mail} #{etape.mot.doc.user.tel}" />
+                        </h:column>                                                                                                                
+                        </h:dataTable>
+                               
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</ui:define>
+
+</ui:composition>

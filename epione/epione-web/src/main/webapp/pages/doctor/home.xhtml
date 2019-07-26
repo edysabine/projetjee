@@ -1,0 +1,84 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/templates/medico.xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:define name="page">
+
+   <!-- feature_part start-->
+    <section class="feature_part">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <div class="section_tittle text-center">
+                        <h2>Your appointments</h2>
+                        <br />
+                        
+                        <h:dataTable value="#{medecinBean.rdvs}" var="rdv" border="2" cellpadding="10px">
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Patient" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.patient.user.nom} #{rdv.patient.user.prenom}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Birth" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.patient.birth}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Date" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.date} #{rdv.debut}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Purpose" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.motif.lib}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Contact" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.patient.user.mail} #{rdv.patient.user.tel}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="State" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.etat}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Action" />
+                        	</f:facet>
+    							<h:commandButton action="#{medecinBean.markD(rdv)}" value="Mark done" rendered="#{rdv.etat == 'Confirmed'}"/> 
+             					<h:commandButton action="#{medecinBean.init()}" value="Delete" rendered="#{rdv.etat == 'Canceled'}"/>
+             					<h:commandButton action="#{medecinBean.init()}" value="Delete" rendered="#{rdv.etat == 'Done'}"/>  
+                        </h:column>
+                        
+                        </h:dataTable>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+    <!-- feature_part end-->        
+
+</ui:define>	
+	
+</ui:composition>	

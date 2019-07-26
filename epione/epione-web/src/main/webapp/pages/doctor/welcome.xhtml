@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<ui:include src="/templates/header.xhtml" />	
+</h:head>
+
+<body>
+    <!--::header part start::-->
+    <header class="main_menu home_menu" >
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html"> <h:graphicImage library="img" name="epione.png" alt="logo"/> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+						<div class="collapse navbar-collapse main-menu-item justify-content-center"
+                            id="navbarSupportedContent">
+                            <ul class="navbar-nav align-items-center">
+                                <li class="nav-item active">
+                                   
+                                </li>
+                                <li class="nav-item">
+
+                                </li>
+                                <li class="nav-item">
+
+                                </li>
+                                <li class="nav-item">
+
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="btn_2 d-none d-lg-block" href="/epione-web/pages/login.jsf" accesskey="">Login</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <br />
+    <!-- banner part start-->
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-xl-5">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                           <h1> <h:outputText value="Welcome #{medecinBean.nom} #{medecinBean.prenom}"/></h1>
+                           <h1>And thank you for your interest in our application.</h1>
+                           <br />
+                           <h5> You will receive a mail when your account will be created by the administrator.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="banner_img">
+                       <h:graphicImage library="img" name="banner_img.png" alt="logo"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- banner part start-->
+     
+   
+    
+    <!-- about us part start-->
+    <section class="about_us padding_top">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6 col-lg-6">
+                    <div class="about_us_img">
+                         <h:graphicImage library="img" name="top_service.png" alt="logo"/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-5">
+                    <div class="about_us_text">
+                        <h2>About us</h2>
+                        <p>You are an health professional? discover the online appointment platform. Win 30% of your time.
+                        </p>
+                        <div class="banner_item">
+                            <div class="single_item">
+                                <h:graphicImage library="img" name="icon/banner_1.svg" alt="" />
+                                <h5>Find more patients</h5>
+                            </div>
+                            <div class="single_item">
+                                <h:graphicImage library="img" name="icon/banner_2.svg" alt="" />
+                                <h5>Optimise your appointments</h5>
+                            </div>
+                            <div class="single_item">
+                                <h:graphicImage library="img" name="icon/banner_3.svg" alt="" />
+                                <h5>Reduce not honored appointments</h5>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about us part end-->
+    
+	<ui:include src="/templates/footer.xhtml" />
+	
+	       <!-- jquery plugins here-->
+	<h:outputScript library="js" name="jquery-1.12.1.min.js" />
+    <!-- popper js -->
+    <h:outputScript library="js" name="popper.min.js" />
+    <!-- bootstrap js -->
+    <h:outputScript library="js" name="bootstrap.min.js" />
+    <!-- owl carousel js -->
+    <h:outputScript library="js" name="owl.carousel.min.js" />
+    <h:outputScript library="js" name="jquery.nice-select.min.js" />
+    <!-- contact js -->
+    <h:outputScript library="js" name="jquery.ajaxchimp.min.js" />
+    <h:outputScript library="js" name="jquery.form.js" />
+    <h:outputScript library="js" name="jquery.validate.min.js" />
+    <h:outputScript library="js" name="mail-script.js" />
+    <h:outputScript library="js" name="contact.js" />
+    <!-- custom js -->
+	<h:outputScript library="js" name="custom.js" />
+</body>
+
+</html>

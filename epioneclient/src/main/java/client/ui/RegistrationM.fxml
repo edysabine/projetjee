@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="575.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.RegistrationMController">
+   <children>
+      <Label layoutX="113.0" layoutY="-44.0" text="Welcome to your medical appointment Platform" textFill="#1560ab" AnchorPane.bottomAnchor="453.0" AnchorPane.leftAnchor="113.0" AnchorPane.rightAnchor="-20.0" AnchorPane.topAnchor="-44.0">
+         <font>
+            <Font name="Blackadder ITC" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="92.0" fitWidth="168.0" layoutX="14.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="301.0" AnchorPane.leftAnchor="13.374099731445312" AnchorPane.rightAnchor="481.6259002685547" AnchorPane.topAnchor="76.0">
+         <image>
+            <Image url="@../image/epione.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="212.0" layoutY="167.0" prefHeight="239.0" prefWidth="362.0" AnchorPane.bottomAnchor="167.0" AnchorPane.leftAnchor="212.0" AnchorPane.topAnchor="167.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label prefHeight="20.0" prefWidth="128.0" text="Last Name*:">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label text="First name:" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="surname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Phone number*:" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Mail*:" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Ville*:" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="144.0" text="Work address*:" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Specialty*:" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="name" GridPane.columnIndex="1" />
+            <TextField fx:id="num" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="mail" accessibleHelp="Your Mail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="specialty" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="city" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="address" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <Label fx:id="error" layoutX="65.0" layoutY="457.0" prefHeight="25.0" prefWidth="253.0" textFill="RED">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="386.0" layoutY="453.0" prefHeight="33.0" prefWidth="182.0" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="107.0" AnchorPane.topAnchor="453.0">
+         <buttons>
+            <Button fx:id="register" mnemonicParsing="false" onAction="#register" text="Register" />
+            <Button fx:id="login" mnemonicParsing="false" onAction="#login" text="Login" />
+         </buttons>
+      </ButtonBar>
+      <Label layoutX="191.0" layoutY="110.0" text="Enter your informations, we will send it to the admin for the creation of your account" textFill="#ff7d00" />
+   </children>
+</AnchorPane>

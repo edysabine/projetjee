@@ -1,0 +1,71 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/pages/admin/medico.xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:define name="page">
+
+   <!-- feature_part start-->
+    <section class="feature_part">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <div class="section_tittle text-center">
+                        <h2>All Patients</h2>
+                        <br />
+                        
+                        <h:dataTable value="#{adminBean.patients}" var="rdv" border="2" cellpadding="10px">
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Name" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.user.nom} #{rdv.user.prenom}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Birth" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.birth}" />
+                        </h:column>
+                       
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Contact" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.user.mail} #{rdv.user.tel}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Activated" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.user.etat== true ? 'Yes' : 'No'}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Action" />
+                        	</f:facet>
+                        	<h:form>
+    							<h:commandButton action="#{adminBean.deactivate()}" value="Deactivate" rendered="#{rdv.user.etat == true}"/>
+    							<h:commandButton action="#{adminBean.activate()}" value="Activate" rendered="#{rdv.user.etat== false}"/>
+    						</h:form>  
+                        </h:column>
+                        
+                        </h:dataTable>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+    <!-- feature_part end-->        
+
+</ui:define>	
+	
+</ui:composition>	

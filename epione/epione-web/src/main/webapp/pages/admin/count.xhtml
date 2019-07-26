@@ -1,0 +1,78 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/pages/admin/medico.xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:define name="page">
+
+   <!-- feature_part start-->
+    <section class="feature_part">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <div class="section_tittle text-center">
+                        <h2>Create new counts</h2>
+                        <br />
+                        
+                        <h:dataTable value="#{adminBean.medecinsc}" var="rdv" border="2" cellpadding="10px">
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Name" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.user.nom} #{rdv.user.prenom}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Contact" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.user.mail} #{rdv.user.tel}" />
+                        </h:column>
+                        
+                                                
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Address" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.adresse}" />
+                        </h:column>                    
+                                                
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="City" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.ville}" />
+                        </h:column>
+                       
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Specialty" />
+                        	</f:facet>
+                        	<h:outputText value="#{rdv.specialite}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Action" />
+                        	</f:facet>
+                        	<h:form>
+    							<h:commandButton action="#{adminBean.create(rdv)}" value="Create" />
+    						</h:form>  
+                        </h:column>
+                        
+                        </h:dataTable>
+                        
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</ui:define>
+
+</ui:composition>                        

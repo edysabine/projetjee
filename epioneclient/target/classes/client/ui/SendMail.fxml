@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="575.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ui.SendMailController">
+   <children>
+      <ImageView fitHeight="92.0" fitWidth="168.0" layoutX="14.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/epione.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="238.0" layoutY="90.0" prefHeight="295.0" prefWidth="450.0" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="94.0" AnchorPane.topAnchor="90.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="148.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="310.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="238.0" minHeight="0.0" prefHeight="226.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Object" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label text="Contents:" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="identifiant" promptText="Object" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="content" prefHeight="234.0" prefWidth="306.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Your Mai address:">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mail" editable="false" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <ButtonBar layoutX="377.0" layoutY="385.0" prefHeight="36.0" prefWidth="150.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="377.0" AnchorPane.rightAnchor="94.0" AnchorPane.topAnchor="385.0">
+         <buttons>
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+            <Button fx:id="send" mnemonicParsing="false" onAction="#send" text="Send" />
+         </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>

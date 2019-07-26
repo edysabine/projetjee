@@ -1,0 +1,119 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<!--<meta pt:charset="utf-8" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, charset=utf-8" />
+    <title>Appointment Platform</title>	
+    <link rel="icon" href="#{resource['img/favicon.png']}"/>
+	<h:outputStylesheet library="css" name="bootstrap.min.css"  />	
+	<!-- animate CSS -->
+    <h:outputStylesheet library="css" name="animate.css"  />
+    <!-- owl carousel CSS -->
+    <h:outputStylesheet library="css" name="owl.carousel.min.css"  />
+    <!-- themify CSS -->
+    <h:outputStylesheet library="css" name="themify-icons.css"  />
+    <!-- flaticon CSS -->
+    <h:outputStylesheet library="css" name="flaticon.css"  />
+    <!-- magnific popup CSS -->
+    <h:outputStylesheet library="css" name="magnific-popup.css"  />
+    <!-- nice select CSS -->
+    <h:outputStylesheet library="css" name="nice-select.css"  />
+    <!-- swiper CSS -->
+    <h:outputStylesheet library="css" name="slick.css"  />
+    <!-- style CSS -->
+    <h:outputStylesheet library="css" name="style.css"  />
+	<style type="text/css">
+    .value {
+        width: 700px;
+    }
+	</style>
+	
+</h:head>
+
+<body>
+         
+         <!--::header part start::-->
+    <header class="main_menu home_menu" >
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html"> <h:graphicImage library="img" name="epione.png" alt="logo"/> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse main-menu-item justify-content-center"
+                            id="navbarSupportedContent">
+                            <ul class="navbar-nav align-items-center">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/epione-web/pages/doctor/home.jsf">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/epione-web/pages/doctor/planing2.jsf">Your Planing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/epione-web/pages/doctor/way.jsf">Patients' way</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Personal informations</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <h:form>
+                        <h:commandButton class="btn_2 d-none d-lg-block" id="btn" action="#{loginBean.doLogout()}" value="Logout" />
+                        </h:form>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->   
+    
+   <br/> <br/> <br/> <br/> <br/>          
+
+<center> <h:form >
+    <p:growl id="messages" showDetail="true" />
+      
+    <h:panelGrid columnClasses="value">
+        <h3 style="margin-top: 0">Editable Schedule</h3>
+        <p:schedule id="schedule" value="#{scheduleView.eventModel}" widgetVar="myschedule" timeZone="GMT+2">
+ 
+            <p:ajax event="dateSelect" listener="#{scheduleView.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+            <p:ajax event="eventSelect" listener="#{scheduleView.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+            <p:ajax event="eventMove" listener="#{scheduleView.onEventMove}" update="messages" />
+            <p:ajax event="eventResize" listener="#{scheduleView.onEventResize}" update="messages" />
+ 
+        </p:schedule>
+    </h:panelGrid>
+     
+    <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
+        <h:panelGrid id="eventDetails" columns="2">
+            <p:outputLabel for="title" value="Titles:" />
+            <p:inputText id="title" value="#{scheduleView.event.title}" required="true" />
+ 
+            <p:outputLabel for="from" value="From:" />
+            <p:calendar id="from" value="#{scheduleView.event.startDate}" timeZone="GMT+2" pattern="dd/MM/yyyy HH:mm"/>
+ 
+            <p:outputLabel for="to" value="To:" />
+            <p:calendar id="to" value="#{scheduleView.event.endDate}" timeZone="GMT+2" pattern="dd/MM/yyyy HH:mm"/>
+ 
+            <p:outputLabel for="allDay" value="All Day:" />
+            <h:selectBooleanCheckbox id="allDay" value="#{scheduleView.event.allDay}" />
+ 
+            <p:commandButton type="reset" value="Reset" />
+            <p:commandButton id="addButton" value="Save" action="#{scheduleView.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+        </h:panelGrid>
+    </p:dialog>    
+</h:form> </center>
+
+</body>
+</html>

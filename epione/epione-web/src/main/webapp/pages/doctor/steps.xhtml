@@ -1,0 +1,103 @@
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/templates/medico.xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:define name="page">
+
+   <!-- feature_part start-->
+    <section class="feature_part">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <div class="section_tittle text-center">
+                        <h2>Adding new step</h2>
+                        <br />
+                        <h:form>
+                        <h:inputText value="#{medecinBean.prenom}" pt:placeholder="Doctor's name or specilaty" />	
+                        <h:commandButton action="#{medecinBean.rechercheM()}" value="Rechercher" />                        
+                        </h:form>
+                        
+                        <br /> 
+                      <!--   <center>  -->
+                        
+                        <h:dataTable value="#{medecinBean.medecins}" var="pat" border="2" cellpadding="10px">
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Name" />
+                        	</f:facet>
+                        	<h:outputText value="#{pat.user.nom} #{pat.user.prenom}" />
+                        </h:column>
+                        
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Contact" />
+                        	</f:facet>
+                        	<h:outputText value="#{pat.user.mail} #{pat.user.tel}" />
+                        </h:column>
+                                                
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Speciality" />
+                        	</f:facet>
+                        	<h:outputText value="#{pat.specialite}" />
+                        </h:column>
+                                                
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="City" />
+                        	</f:facet>
+                        	<h:outputText value="#{pat.ville}" />
+                        </h:column>
+                                                          
+                        <h:column>
+                        	<f:facet name="header">
+                        		<h:outputText value="Action" />
+                        	</f:facet>
+                        	<h:form>
+    							<h:commandButton action="#{medecinBean.afficherM(pat)}" value="Choose"/>
+    						</h:form> 
+                        </h:column>
+                        
+                        </h:dataTable> 
+                        
+                        
+                        <BR /> <BR /> 
+                        <h:form>
+                        <h:panelGrid columns="2">
+                        	<h:outputText value="Patient:" /> 
+							<h:outputText value="#{medecinBean.parc.pat.user.nom} #{medecinBean.parc.pat.user.prenom}" pt:placeholder="Name"/>
+							<h:outputText value="Doctor" />
+							<h:inputText value="#{medecinBean.nom}" pt:placeholder="Name"/>
+							
+							<h:outputText value="Priority" />
+							<h:inputText value="#{medecinBean.adresse}" pt:placeholder="Priority(1-2-3 or more)"/>
+							
+							<h:outputText value="Purpose" />
+			<h:selectOneMenu value="#{medecinBean.ville}" required="true" id="validaten" requiredMessage="You have to choose a purpose">
+				<f:selectItem itemLabel="Choose a purpose" itemValue=""/>
+				<f:selectItems value="#{medecinBean.motifs}" var="motif" itemValue="#{motif.lib}" itemLabel="#{motif.lib}"></f:selectItems>
+				<h:message for="validaten" style="color:red"/> 
+			</h:selectOneMenu>
+							
+							<h:outputText value="Description:" />
+							<h:inputTextarea value="#{medecinBean.image}" />
+							<h:commandButton class="btn_2" action="#{medecinBean.ajoutE()}" value="Add" />
+						</h:panelGrid>
+                        </h:form>
+                       <h3><h:link outcome="/pages/doctor/way" value="Return"/></h3>
+                        <!-- </center>  -->
+                        
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</ui:define>
+
+</ui:composition>                        
